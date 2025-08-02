@@ -8,13 +8,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf(csrf -> csrf.disable()) // desactiva CSRF para testing
-            .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll() // permite todo sin login
+  @Bean
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http.csrf(csrf -> csrf.disable()) // desactiva CSRF para testing
+        .authorizeHttpRequests(
+            auth -> auth.anyRequest().permitAll() // permite todo sin login
             );
-        return http.build();
-    }
+    return http.build();
+  }
 }
